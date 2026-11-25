@@ -1,13 +1,12 @@
-# Run JARVIS from an iPad
+# Run JARVIS on iPad only (no Mac or computer)
 
-Nothing needs installing on the iPad. Node, Git and the build run in a cloud session.
+Everything happens in Safari on the iPad.
 
-## Prompt to paste into Claude Code on the web (claude.ai/code in Safari)
+1. In Safari, open the repo on github.com: Settings > Pages > Source: **GitHub Actions** (one time).
+2. Open the Actions tab, pick "Deploy JARVIS to GitHub Pages", tap **Run workflow**.
+3. When it finishes, the app is at `https://<your-github-user>.github.io/jarvis/`.
+4. In Safari tap Share > **Add to Home Screen** to launch it like an app.
 
-> Open the repo `tj8kjbvz8r-hash/jarvis`, branch `claude/ipad-jarvis-vite-react-t7usab`.
-> In the `jarvis` folder run `npm install`, then `npm run dev -- --host`, and show me the running app.
-> If I ask for changes, edit the code, rebuild with `npm run build`, and commit and push to the same branch.
+To change the app, use Claude Code on the web (claude.ai/code in Safari). Each push redeploys it automatically.
 
-## Other ways to view it
-- Deploy `jarvis/` (build command `npm run build`, output `dist`) to Vercel, Netlify or Cloudflare Pages, then open the URL in Safari.
-- Import the repo into StackBlitz or GitHub Codespaces and open the preview in Safari.
+Quick preview without any setup: the Artifact link shared in chat.
