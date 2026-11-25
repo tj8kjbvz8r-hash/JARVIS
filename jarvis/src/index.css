@@ -1,0 +1,44 @@
+:root {
+  --bg: #02070d;
+  --panel: #06121c;
+  --cyan: #00e5ff;
+  --cyan-dim: #0a6c7a;
+  --text: #bdefff;
+  font-family: 'Courier New', ui-monospace, monospace;
+  color: var(--text);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 60% 40%, #06202e, var(--bg) 70%); }
+.shell { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 220px; flex-shrink: 0; padding: 24px 16px; display: flex; flex-direction: column; gap: 24px;
+  background: var(--panel); border-right: 1px solid var(--cyan-dim); box-shadow: 0 0 20px rgba(0,229,255,.15);
+}
+.brand { color: var(--cyan); letter-spacing: .3em; font-weight: bold; text-shadow: 0 0 8px var(--cyan); }
+nav { display: flex; flex-direction: column; gap: 8px; }
+nav a {
+  color: var(--text); text-decoration: none; padding: 12px 14px; letter-spacing: .15em; text-transform: uppercase;
+  border: 1px solid transparent; border-left: 3px solid var(--cyan-dim);
+}
+nav a:hover { border-color: var(--cyan-dim); }
+nav a.active { color: var(--cyan); border-color: var(--cyan); background: rgba(0,229,255,.08); box-shadow: 0 0 12px rgba(0,229,255,.3); }
+.status { margin-top: auto; font-size: .7rem; color: var(--cyan); letter-spacing: .15em; }
+.content { flex: 1; padding: 32px; display: flex; }
+.home, .panel { margin: auto; text-align: center; }
+h1, h2 { color: var(--cyan); letter-spacing: .12em; text-shadow: 0 0 10px rgba(0,229,255,.6); font-weight: normal; }
+.sub { color: var(--cyan-dim); letter-spacing: .3em; font-size: .8rem; }
+
+.reactor { position: relative; width: min(60vmin, 360px); aspect-ratio: 1; margin: 0 auto 32px; }
+.ring, .core { position: absolute; border-radius: 50%; inset: 0; }
+.ring { border: 3px solid var(--cyan); box-shadow: 0 0 20px var(--cyan), inset 0 0 20px var(--cyan); }
+.r1 { animation: pulse 3s ease-in-out infinite; }
+.r2 { inset: 12%; border-style: dashed; border-width: 2px; animation: spin 14s linear infinite; }
+.r3 { inset: 25%; border-color: #7df3ff; animation: spin 8s linear infinite reverse; border-top-color: transparent; border-bottom-color: transparent; }
+.core {
+  inset: 38%; background: radial-gradient(circle, #fff 0%, var(--cyan) 40%, transparent 72%);
+  box-shadow: 0 0 60px 20px rgba(0,229,255,.7); animation: pulse 2s ease-in-out infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse { 50% { opacity: .55; filter: brightness(1.4); } }
+@media (max-width: 700px) { .sidebar { width: 150px; } .content { padding: 16px; } }
